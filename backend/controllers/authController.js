@@ -77,7 +77,7 @@ const loginUser = async(request, response) => {
         }
 
         // Check if the user exists
-        const user = await User.findOne(email);
+        const user = await User.findOne({email});
         if(!user)
         {
             return response.status(401).json({message: 'Invalid email or password'});
