@@ -9,10 +9,10 @@ const protect = async(request, response, next) => {
         let token;
 
         // Check if the authorization header is present and starts with 'Bearer'
-        if(request.headers.authorization && request.headers.authorzationstartsWith('Bearer'))
+        if(request.headers.authorization && request.headers.authorization.startsWith('Bearer'))
         {
             // Get the token from the authorization header
-            token = request.headers.authorozation.split('')[1];
+            token = request.headers.authorization.split(' ')[1];
 
             // Verify the token and decode it
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
