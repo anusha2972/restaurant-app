@@ -4,6 +4,7 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes')
 const menuRoutes = require('./routes/menuRoutes')
 const orderRoutes = require('./routes/orderRoutes');
+const cartRoutes = require('./routes/cartRoutes');
 
 // Load environment variables and connect to the database
 dotenv.config();
@@ -20,6 +21,9 @@ app.use('/api/menu', menuRoutes);
 
 // Use the order routes
 app.use('/api/orders', orderRoutes);
+
+// Use the cart routes
+app.use('/api/cart', cartRoutes);
 
 // Define routes
 app.get('/', (request, response) => {
